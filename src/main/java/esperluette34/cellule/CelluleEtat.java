@@ -1,4 +1,4 @@
-package cellule;
+package esperluette34.cellule;
 
 public interface CelluleEtat{
     CelluleEtat vit();

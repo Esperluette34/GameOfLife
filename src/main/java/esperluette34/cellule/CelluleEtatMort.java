@@ -1,4 +1,4 @@
-package cellule;
+package esperluette34.cellule;
 
 public class CelluleEtatMort implements CelluleEtat{
     static private CelluleEtatMort singleton;

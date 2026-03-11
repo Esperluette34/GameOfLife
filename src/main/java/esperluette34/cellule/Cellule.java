@@ -1,4 +1,7 @@
-package JeuDeLaVie.cellule;
+package esperluette34.cellule;
+
+import esperluette34.cellule.CelluleEtat;
+import esperluette34.JeuDeLaVie;
 
 public class Cellule {
     private int x;
@@ -27,11 +30,18 @@ public class Cellule {
         int count = 0;
         for (int i = x - 1; i <= x + 1; i++){
             for (int j = y - 1; j <= y + 1; j++){
-                if (i != x && j != y && jeu.getGrilleXY(i, j).estVivante()){
-                    count++;
+                if (i != x && j != y){
+                    Cellule c = jeu.getGrilleXY(i, j);
+                    if (c != null && c.estVivante()){
+                        count++;
+                    }
                 }
             }
         }
         return count;
+    }
+
+    public String toString(){
+        return (this.etat.estVivante()) ? " 1 " : " 0 ";
     }
 }
