@@ -26,11 +26,19 @@ public class JeuDeLaVie{
     }
 
     public Cellule getGrilleXY(int x, int y){
-        if (x >= xMax || y >= yMax){
+        if (x >= xMax || y >= yMax || x < 0 || y < 0){
             return null;
         }
 
         return new Cellule(x, y, (grille[x][y].estVivante()) ? CelluleEtatVivant.getInstance() : CelluleEtatMort.getInstance());
+    }
+
+    public int getxMax(){
+        return this.xMax;
+    }
+
+    public int getyMax(){
+        return this.yMax;
     }
 
     public String toString(){
@@ -48,6 +56,15 @@ public class JeuDeLaVie{
         JeuDeLaVie jeu = new JeuDeLaVie(15, 15);
         jeu.initialiseGrille();
         System.out.println(jeu);
+
+        String str = new String();
+        for (int x = 0; x < jeu.getxMax(); x++){
+            for (int y = 0; y < jeu.getyMax(); y++){
+                str += " " + String.valueOf(jeu.getGrilleXY(x,y).nombreVoisinesVivantes(jeu)).toString() + " ";
+            }
+            str += "\n";
+        }
+        System.out.println(str);
 
     }
 }
